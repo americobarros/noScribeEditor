@@ -41,13 +41,19 @@ exe = EXE(
     entitlements_file=None,
     icon='noScribeEditLogo.ico'
 )
-coll = COLLECT(
+app = BUNDLE(
     exe,
     a.binaries,
     a.zipfiles,
     a.datas,
-    strip=False,
-    upx=True,
-    upx_exclude=[],
-    name='noScribeEdit',
+    name='noScribeEdit.app',
+    icon='noScribeEditLogo.ico',
+    bundle_identifier='com.noscribe.editor',
+    info_plist={
+        'CFBundleName': 'noScribeEdit',
+        'CFBundleDisplayName': 'noScribeEdit',
+        'CFBundleVersion': '1.0.0',
+        'CFBundleShortVersionString': '1.0.0',
+        'NSHighResolutionCapable': True,
+    },
 )
